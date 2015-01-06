@@ -72,7 +72,7 @@ public class BookServlet extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         RequestDispatcher dispatcher = 
                 request.getRequestDispatcher("/index.html");
         
@@ -147,7 +147,7 @@ public class BookServlet extends HttpServlet {
             
             transformer.transform(xmlSource, result);
         } catch (TransformerException transformerException) {
-            transformerException.printStackTrace();
+            transformerException.printStackTrace(System.err);
         }
     }
 
